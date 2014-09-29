@@ -28,7 +28,7 @@
  */
 
 // Require PHPExcel
-require_once('libs/PHPExcel/PHPExcel.php');
+require_once('libs/PHPExcel/Classes/PHPExcel.php');
 
 /**
  * PHPExcelFormatterException
