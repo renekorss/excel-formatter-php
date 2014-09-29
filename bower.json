@@ -4,7 +4,7 @@
   "main": "PHPExcelFormatter.php",
   "ignore": [],
   "dependencies": {
-    "PHPOffice/PHPExcel": "master"
+    "https://github.com/PHPOffice/PHPExcel.git": "master"
   },
   "devDependencies": {
 
