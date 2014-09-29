@@ -1,0 +1,12 @@
+{
+  "name": "PHPExcelFormatter",
+  "version": "1.0.0",
+  "main": "PHPExcelFormatter.php",
+  "ignore": [],
+  "dependencies": {
+    "PHPOffice/PHPExcel": "master"
+  },
+  "devDependencies": {
+
+  }
+}
