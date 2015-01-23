@@ -9,6 +9,10 @@ PHPExcelFormatter is class to make it more simple to get data from Excel documen
 * Retrieve data in array or MySQL query format
 * Greate for importing files and then letting user to connect document columns with your DB fields :) (example coming)
 
+Bower
+=================
+	bower install phpexcelformatter
+
 Usage
 =================
 
