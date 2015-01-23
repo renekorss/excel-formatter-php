@@ -12,9 +12,6 @@
  * @author     Rene Korss <rene.korss@gmail.com>
  */
 
-// Require PHPExcel
-require_once('libs/PHPExcel/Classes/PHPExcel.php');
-
 /**
  * PHPExcelFormatterException
  */
@@ -95,6 +92,11 @@ class PHPExcelFormatter
 
 	public function __construct($file, $readColumns = true)
 	{
+        // Check if we have PHPExcel
+        if(!class_exists('PHPExcel')){
+            throw new PHPExcelFormatterException('PHPExcel class not found. Please include it.');
+        }
+
 		// Set file
 		$this->_file          = $file;
 
