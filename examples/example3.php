@@ -5,6 +5,7 @@
  * @author     Rene Korss <rene.korss@gmail.com>
  */
 
+require_once('../../bower_components/PHPExcel/Classes/PHPExcel.php');
 require_once('../PHPExcelFormatter.php');
 
 try

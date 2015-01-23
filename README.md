@@ -17,52 +17,55 @@ Usage
 =================
 
 ```php
-require_once('../PHPExcelFormatter.php');
+// Require needed files
+require_once('bower_components/PHPExcel/Classes/PHPExcel.php');
+require_once('bower_components/phpexcelformatter/PHPExcelFormatter.php');
 
-try
-{
-    // Load file
-	$formatter = new PHPExcelFormatter('example1.xls');
+try{
+  // Load file
+  $formatter = new PHPExcelFormatter('example1.xls');
 
-	// Output columns array (document must have column names on first row)
-	$formatterColumns = array(
-							'username' => 'username',
-							'phone'    => 'phone_no',
-							'email'    => 'email_address'
-							);
+  // Output columns array (document must have column names on first row)
+  $formatterColumns = array(
+    'username' => 'username',
+    'phone'    => 'phone_no',
+    'email'    => 'email_address'
+  );
 
-    // Output columns array (document dosen't have column names on first row)
-    // Skip foruth column (age) (third in array), because we don't need that data
-    // NOTE: if document dosen't have column names on first line, second parameter for PHPExcelFormatter should be $readColumns = false, otherwise it will skip first line of data
-	$formatterColumns = array(
-							'username',
-							'email_address',
-							'phone',
-                            4 => 'sex'
-							);
+  // Output columns array (document dosen't have column names on first row)
+  // Skip foruth column (age) (third in array), because we don't need that data
+  // NOTE: if document dosen't have column names on first line, second parameter for PHPExcelFormatter should be $readColumns = false, otherwise it will skip first line of data
+  $formatterColumns = array(
+    'username',
+    'email_address',
+    'phone',
+    4 => 'sex'
+  );
 
-	// Set our columns
-	$formatter->setFormatterColumns($formatterColumns);
+  // Set our columns
+  $formatter->setFormatterColumns($formatterColumns);
 
-	// Output as array
-	$output = $formatter->output('a');
+  // Output as array
+  $output = $formatter->output('a');
+  // OR
+  // $output = $formatter->output('array');
 
-	// Print array
-	echo '<pre>'.print_r($output, true).'</pre>';
+  // Print array
+  echo '<pre>'.print_r($output, true).'</pre>';
 
-	// Set MySQL table
-	$formatter->setMySQLTableName('users');
+  // Set MySQL table
+  $formatter->setMySQLTableName('users');
 
-	// Output as mysql query
-	$output = $formatter->output('m');
+  // Output as mysql query
+  $output = $formatter->output('m');
+  // OR
+  // $output = $formatter->output('mysql');
 
-	// Print mysql query
-	echo '<pre>'.print_r($output, true).'</pre>';
+  // Print mysql query
+  echo '<pre>'.print_r($output, true).'</pre>';
 
-}
-catch(PHPExcelFormatterException $e)
-{
-	echo 'Error: '.$e->getMessage();
+}catch(PHPExcelFormatterException $e){
+  echo 'Error: '.$e->getMessage();
 }
 ```
 
