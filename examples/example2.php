@@ -9,38 +9,38 @@ require_once('../PHPExcelFormatter.php');
 
 try
 {
-	// Load file
-	$formatter = new PHPExcelFormatter('example2.xls', false);
+    // Load file
+    $formatter = new PHPExcelFormatter('example2.xls', false);
 
-	// Output fields array. Key is column number starting from 0
-	$formatterColumns = array(
-							0 => 'username',
-							2 => 'phone_no',
-							4 => 'sex'
-							);
+    // Output fields array. Key is column number starting from 0
+    $formatterColumns = array(
+        0 => 'username',
+        2 => 'phone_no',
+        4 => 'sex'
+    );
 
-	// Set our fields
-	$formatter->setFormatterColumns($formatterColumns);
+    // Set our fields
+    $formatter->setFormatterColumns($formatterColumns);
 
-	// Output as array
-	$output = $formatter->output('a');
+    // Output as array
+    $output = $formatter->output('a');
 
-	// Print array
-	echo '<pre>'.print_r($output, true).'</pre>';
+    // Print array
+    echo '<pre>'.print_r($output, true).'</pre>';
 
-	// Set MySQL table
-	$formatter->setMySQLTableName('users');
+    // Set MySQL table
+    $formatter->setMySQLTableName('users');
 
-	// Output as mysql query
-	$output = $formatter->output('m');
+    // Output as mysql query
+    $output = $formatter->output('m');
 
-	// Print mysql query
-	echo '<pre>'.print_r($output, true).'</pre>';
+    // Print mysql query
+    echo '<pre>'.print_r($output, true).'</pre>';
 
 }
 catch(PHPExcelFormatterException $e)
 {
-	echo 'Error: '.$e->getMessage();
+    echo 'Error: '.$e->getMessage();
 }
 
 ?>
