@@ -78,4 +78,4 @@ Uses (thanks)
 
 License
 =================
-PHPExcelFormatter is licensed under [LGPL](LICENSE)
+PHPExcelFormatter is licensed under [MIT](LICENSE)

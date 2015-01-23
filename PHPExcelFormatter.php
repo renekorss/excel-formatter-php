@@ -2,7 +2,7 @@
 /**
  * PHPExcelFormatter
  *
- * Copyright (c) 2014 PHPExcelFormatter
+ * Copyright (c) 2015 PHPExcelFormatter
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,9 +21,9 @@
  *
  * @category   PHPExcelFormatter
  * @package    PHPExcelFormatter
- * @copyright  Copyright (c) 2014 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
- * @license    http://www.gnu.org/licenses/old-licenses/lgpl-2.1.txt    LGPL
- * @version    1.0.0, 2014-09-24
+ * @copyright  Copyright (c) 2015 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
+ * @license    http://opensource.org/licenses/MIT
+ * @version    1.0.1, 2015-01-23
  * @author     Rene Korss <rene.korss@gmail.com>
  */
 
@@ -41,7 +41,7 @@ class PHPExcelFormatterException extends Exception{ }
  *
  * @category   PHPExcelFormatter
  * @package    PHPExcelFormatter
- * @copyright  Copyright (c) 2014 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
+ * @copyright  Copyright (c) 2015 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
  */
 
 class PHPExcelFormatter
