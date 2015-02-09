@@ -1,0 +1,25 @@
+{
+  "name": "renekorss/phpexcelformatter",
+  "type": "library",
+  "description": "PHPExcelFormatter is class to make it more simple to get data from Excel documents.",
+  "keywords": ["PHP", "Excel", "format", "xlsx", "xls", "spreadsheet"],
+  "homepage": "https://github.com/renekorss/PHPExcelFormatter",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Rene Korss",
+      "email": "rene.korss@gmail.com",
+      "homepage": "http://rene.korss.ee",
+      "role": "Developer"
+    }
+  ],
+    "require": {
+      "php": ">=5.2.0",
+      "phpoffice/phpexcel": "~1.8.0"
+    },
+    "autoload": {
+      "psr-0": {
+        "PHPExcel": "Classes/"
+      }
+    }
+  }
