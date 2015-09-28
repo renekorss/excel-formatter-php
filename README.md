@@ -9,17 +9,16 @@ PHPExcelFormatter is class to make it more simple to get data from Excel documen
 * Retrieve data in array or MySQL query format
 * Greate for importing files and then letting user to connect document columns with your DB fields :) (example coming)
 
-Bower
+Composer
 =================
-	bower install phpexcelformatter
+	composer require renekorss/phpexcelformatter
 
 Usage
 =================
 
 ```php
 // Require needed files
-require_once('bower_components/PHPExcel/Classes/PHPExcel.php');
-require_once('bower_components/phpexcelformatter/PHPExcelFormatter.php');
+require __DIR__ . '/vendor/autoload.php';
 
 try{
   // Load file
