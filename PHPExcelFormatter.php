@@ -148,7 +148,7 @@ class PHPExcelFormatter
 
     public function setColumns($columns = array())
     {
-        $this->_columns       = (array)$columns;
+        $this->_columns       = (array)array_filter($columns);
         $this->_columnNumbers = array_flip($this->_columns);
     }
 
