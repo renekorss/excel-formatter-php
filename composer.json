@@ -13,13 +13,16 @@
       "role": "Developer"
     }
   ],
-    "require": {
-      "php": ">=5.2.0",
-      "phpoffice/phpexcel": "~1.8.0"
+  "require": {
+    "php": ">=5.2.0",
+    "phpoffice/phpexcel": "~1.8.0"
+  },
+  "autoload": {
+    "psr-0": {
+      "PHPExcel": "Classes/"
     },
-    "autoload": {
-      "psr-0": {
-        "PHPExcel": "Classes/"
-      }
+    "psr-4": {
+      "RKD\\PHPExcelFormatter": "src"
     }
   }
+}

@@ -2,28 +2,26 @@
 /**
  * PHPExcelFormatter
  *
- * Copyright (c) 2015 PHPExcelFormatter
+ * Copyright (c) 2016 PHPExcelFormatter
  *
  * @category   PHPExcelFormatter
  * @package    PHPExcelFormatter
- * @copyright  Copyright (c) 2015 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
+ * @copyright  Copyright (c) 2016 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
  * @license    http://opensource.org/licenses/MIT
- * @version    1.0.1, 2015-01-23
+ * @version    2.0.0, 2016-09-16
  * @author     Rene Korss <rene.korss@gmail.com>
  */
 
-/**
- * PHPExcelFormatterException
- */
+namespace RKD\PHPExcelFormatter;
 
-class PHPExcelFormatterException extends Exception{ }
+use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
 
 /**
  * PHPExcelFormatter
  *
  * @category   PHPExcelFormatter
  * @package    PHPExcelFormatter
- * @copyright  Copyright (c) 2015 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
+ * @copyright  Copyright (c) 2016 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
  */
 
 class PHPExcelFormatter

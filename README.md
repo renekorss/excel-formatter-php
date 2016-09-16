@@ -20,6 +20,9 @@ Usage
 // Require needed files
 require __DIR__ . '/vendor/autoload.php';
 
+use RKD\PHPExcelFormatter\PHPExcelFormatter;
+use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
+
 try{
   // Load file
   $formatter = new PHPExcelFormatter('example1.xls');
