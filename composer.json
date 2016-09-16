@@ -22,7 +22,7 @@
       "PHPExcel": "Classes/"
     },
     "psr-4": {
-      "RKD\\PHPExcelFormatter": "src"
+      "RKD\\PHPExcelFormatter\\": "src"
     }
   }
 }
