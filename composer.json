@@ -18,9 +18,6 @@
     "phpoffice/phpexcel": "~1.8.0"
   },
   "autoload": {
-    "psr-0": {
-      "PHPExcel": "Classes/"
-    },
     "psr-4": {
       "RKD\\PHPExcelFormatter\\": "src"
     }

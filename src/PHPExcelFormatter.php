@@ -99,14 +99,14 @@ class PHPExcelFormatter
         $this->_file          = $file;
 
         // Initiate PHPExcel cache
-        $cacheMethod               = PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
+        $cacheMethod               = \PHPExcel_CachedObjectStorageFactory::cache_to_phpTemp;
         $cacheSettings             = array('memoryCacheSize' => '32MB');
-        PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
+        \PHPExcel_Settings::setCacheStorageMethod($cacheMethod, $cacheSettings);
 
         // Create PHPExcel object
-        $excelObj                  = new PHPExcel();
-        $inputFileType             = PHPExcel_IOFactory::identify($this->_file);
-        $readerObj                 = PHPExcel_IOFactory::createReader($inputFileType);
+        $excelObj                  = new \PHPExcel();
+        $inputFileType             = \PHPExcel_IOFactory::identify($this->_file);
+        $readerObj                 = \PHPExcel_IOFactory::createReader($inputFileType);
         $readerObj->setReadDataOnly(true);
 
         // Load file to a PHPExcel Object
@@ -117,7 +117,7 @@ class PHPExcelFormatter
 
         $this->_highestRow         = $this->_worksheetObj->getHighestRow();
         $this->_highestColumn      = $this->_worksheetObj->getHighestColumn();
-        $this->_highestColumnIndex = PHPExcel_Cell::columnIndexFromString($this->_highestColumn);
+        $this->_highestColumnIndex = \PHPExcel_Cell::columnIndexFromString($this->_highestColumn);
 
         // If we need to read columns from first row
         if($readColumns)
