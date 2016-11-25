@@ -312,7 +312,7 @@ class PHPExcelFormatter
      * Function to output data as MySQL query
      *
      * NB! This is not 100% secure against SQL injection. Should use outputArray() function with PDO or MySQLi.
-     * TODO: Should set DB connection and then escape. Support PDO and MySQLi. Remove function escape().
+     * Should support PDO and MySQLi. Remove function escape().
      */
 
     protected function outputMySQLQuery()
