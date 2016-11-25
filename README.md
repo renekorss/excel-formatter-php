@@ -1,3 +1,8 @@
+[![Latest Stable Version](https://poser.pugx.org/renekorss/phpexcelformatter/v/stable)](https://packagist.org/packages/renekorss/phpexcelformatter)
+[![Total Downloads](https://poser.pugx.org/renekorss/phpexcelformatter/downloads)](https://packagist.org/packages/renekorss/phpexcelformatter)
+[![License](http://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
+[![SensioLabsInsight](https://insight.sensiolabs.com/projects/591227c5-55ca-47cf-a349-939024ce7628/mini.png)](https://insight.sensiolabs.com/projects/591227c5-55ca-47cf-a349-939024ce7628)
+
 PHPExcelFormatter
 =================
 
