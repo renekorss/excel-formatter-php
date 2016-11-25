@@ -18,6 +18,6 @@ namespace RKD\PHPExcelFormatter\Exception;
  * PHPExcelFormatterException
  */
 
-class PHPExcelFormatterException extends Exception{
+class PHPExcelFormatterException extends \Exception{
 
 }
