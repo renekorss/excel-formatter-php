@@ -91,7 +91,7 @@ class PHPExcelFormatter
     public function __construct($file, $readColumns = true)
     {
         // Check if we have PHPExcel
-        if(!class_exists('PHPExcel')){
+        if (!class_exists('PHPExcel')) {
             throw new PHPExcelFormatterException('PHPExcel class not found. Please include it.');
         }
 
@@ -120,14 +120,12 @@ class PHPExcelFormatter
         $this->_highestColumnIndex = \PHPExcel_Cell::columnIndexFromString($this->_highestColumn);
 
         // If we need to read columns from first row
-        if($readColumns)
-        {
+        if ($readColumns) {
             // If first row is columns, don't add it to formatted data
             $this->_startingRow = 2;
             $row = 1;
 
-            for($col = 0; $col < $this->_highestColumnIndex; ++$col)
-            {
+            for ($col = 0; $col < $this->_highestColumnIndex; ++$col) {
                 $value = $this->_worksheetObj->getCellByColumnAndRow($col, $row)->getValue();
                 $columns[$col]                = $value;
                 $this->_columnNumbers[$value] = $col;
@@ -215,14 +213,12 @@ class PHPExcelFormatter
     public function output($format = '')
     {
         // Format data if not formated yet
-        if(empty($this->_formattedData))
-        {
+        if (empty($this->_formattedData)) {
                 $this->format();
         }
 
         // Output depending on desired format
-        switch ($format)
-        {
+        switch ($format) {
             case 'a':
             case 'array':
                 return $this->outputArray();
@@ -244,28 +240,23 @@ class PHPExcelFormatter
     public function format()
     {
         // Check if found column no
-        if(empty($this->_formatterColumns))
+        if (empty($this->_formatterColumns)) {
             throw new PHPExcelFormatterException('No formatter columns provided. Use setFormatterColumns() function.');
+        }
 
         // Empty formatted data
         $this->_formattedData = array();
 
         // Read all rows
-        for ($row = $this->_startingRow; $row <= $this->_highestRow; ++$row)
-        {
-            foreach ($this->_formatterColumns AS $colIdentifier => $colName)
-            {
+        for ($row = $this->_startingRow; $row <= $this->_highestRow; ++$row) {
+            foreach ($this->_formatterColumns as $colIdentifier => $colName) {
                 // If has column number
-                if(is_int($colIdentifier) AND $colIdentifier >= 0)
-                {
+                if (is_int($colIdentifier) && $colIdentifier >= 0) {
                     $colNo = $colIdentifier;
-                }
                 // If has column name
-                else
-                {
+                } else {
                     // Check if we know columns
-                    if(empty($this->_columns))
-                    {
+                    if (empty($this->_columns)) {
                         // Columns are not
                         throw new PHPExcelFormatterException('Columns are not set.');
                     }
@@ -274,8 +265,9 @@ class PHPExcelFormatter
                     $colNo = $this->_columnNumbers[$colIdentifier];
 
                     // Check if found column no
-                    if(!(is_int($colNo) AND $colNo >= 0))
+                    if (!(is_int($colNo) && $colNo >= 0)) {
                         throw new PHPExcelFormatterException('Field '.$colIdentifier.' not found.');
+                    }
                 }
 
                 // Get value
@@ -338,23 +330,21 @@ class PHPExcelFormatter
         $formattedData = $this->_formattedData;
 
         // Check if we have MySQL table name
-        if(strlen($tableName) == 0)
+        if (strlen($tableName) == 0) {
             throw new PHPExcelFormatterException('MySQL table not set.');
+        }
 
         // If we have data
-        if(!empty($formattedData))
-        {
+        if (!empty($formattedData)) {
             // Create query
             $sql = "INSERT INTO `".$this->_mysqlTable."` (`".implode('`, `', $this->_formatterColumns)."`) VALUES ";
 
-            foreach ($formattedData as $row)
-            {
+            foreach ($formattedData as $row) {
                 // Start new row
                 $sqlRow = '(';
                 $sqlRowValues = null;
 
-                foreach ($row as $columnName => $columnValue)
-                {
+                foreach ($row as $columnName => $columnValue) {
                     $sqlRowValues[] = "'".$this->escape($columnValue)."'";
                 }
 
@@ -372,4 +362,3 @@ class PHPExcelFormatter
         return $sql;
     }
 }
-?>
