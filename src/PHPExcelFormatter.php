@@ -241,7 +241,7 @@ class PHPExcelFormatter
     {
         // Check if found column no
         if (empty($this->formatterColumns)) {
-            throw new PHPExcelFormatterException('No formatter columns provided. Use setFormatterColumns() function.');
+            throw new PHPExcelFormatterException('No formatter columns provided. Use setFormatterColumns() function.'); // @codeCoverageIgnore
         }
 
         // Empty formatted data

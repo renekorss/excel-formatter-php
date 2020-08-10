@@ -89,6 +89,16 @@ final class MySQLTest extends TestCase
             "VALUES ('user', '554678876', 'male'), ('test', '428567867', 'female')",
             $output
         );
+
+        $this->assertEquals(
+            $columns,
+            $formatter->getColumns()
+        );
+
+        $this->assertEquals(
+            $formatterColumns,
+            $formatter->getFormatterColumns()
+        );
     }
 
     public function testTestNoFormatterColumns()
