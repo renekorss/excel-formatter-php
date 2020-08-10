@@ -93,7 +93,7 @@ class PHPExcelFormatter
     {
         // Check if we have PHPExcel
         if (!class_exists(Spreadsheet::class)) {
-            throw new PHPExcelFormatterException('Spreadsheet class not found. Please include it.');
+            throw new PHPExcelFormatterException('Spreadsheet class not found. Please include it.'); // @codeCoverageIgnore
         }
 
         // Set file
@@ -241,7 +241,7 @@ class PHPExcelFormatter
     {
         // Check if found column no
         if (empty($this->formatterColumns)) {
-            throw new PHPExcelFormatterException('No formatter columns provided. Use setFormatterColumns() function.'); // @codeCoverageIgnore
+            throw new PHPExcelFormatterException('No formatter columns provided. Use setFormatterColumns() function.');
         }
 
         // Empty formatted data

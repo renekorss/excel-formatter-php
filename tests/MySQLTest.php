@@ -96,6 +96,11 @@ final class MySQLTest extends TestCase
         );
 
         $this->assertEquals(
+            'users',
+            $formatter->getMySQLTableName()
+        );
+
+        $this->assertEquals(
             $formatterColumns,
             $formatter->getFormatterColumns()
         );
