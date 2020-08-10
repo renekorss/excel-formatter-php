@@ -18,12 +18,16 @@
     "phpoffice/phpspreadsheet": "^1.14"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.5"
+    "phpunit/phpunit": "^8.5",
+    "cedx/coveralls": "^11.2"
   },
   "autoload": {
     "psr-4": {
       "RKD\\PHPExcelFormatter\\": "src"
     }
+  },
+  "config": {
+    "optimize-autoloader": true
   },
   "scripts": {
     "test": "./vendor/bin/phpunit"
