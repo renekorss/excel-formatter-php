@@ -262,7 +262,7 @@ class PHPExcelFormatter
                     }
 
                     // Search column number for this column
-                    $colNo = $this->columnNumbers[$colIdentifier];
+                    $colNo = $this->columnNumbers[$colIdentifier] ?? false;
 
                     // Check if found column no
                     if (!(is_int($colNo) && $colNo >= 0)) {

@@ -1,5 +1,6 @@
 <?php
 use PHPUnit\Framework\TestCase;
+use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
 use RKD\PHPExcelFormatter\PHPExcelFormatter;
 
 final class MySQLTest extends TestCase
@@ -20,8 +21,8 @@ final class MySQLTest extends TestCase
         // Set our columns
         $formatter->setFormatterColumns($formatterColumns);
 
-        // Output as array
-        $output = $formatter->output('m');
+        // Output as mysql query
+        $output = $formatter->output('mysql');
 
         $this->assertEquals(
             "INSERT INTO `users` (`username`, `phone_no`, `email_address`) ".
@@ -46,8 +47,8 @@ final class MySQLTest extends TestCase
         // Set our fields
         $formatter->setFormatterColumns($formatterColumns);
 
-        // Output as array
-        $output = $formatter->output('m');
+        // Output as mysql query
+        $output = $formatter->output();
 
         $this->assertEquals(
             "INSERT INTO `users` (`username`, `phone_no`, `sex`) ".
@@ -80,7 +81,7 @@ final class MySQLTest extends TestCase
         // Set our fields
         $formatter->setFormatterColumns($formatterColumns);
 
-        // Output as array
+        // Output as mysql query
         $output = $formatter->output('m');
 
         $this->assertEquals(
@@ -88,5 +89,80 @@ final class MySQLTest extends TestCase
             "VALUES ('user', '554678876', 'male'), ('test', '428567867', 'female')",
             $output
         );
+    }
+
+    public function testTestNoFormatterColumns()
+    {
+        $this->expectException(PHPExcelFormatterException::class);
+
+        // Load file
+        $formatter = new PHPExcelFormatter(dirname(__DIR__).'/examples/example2.xls', false);
+        $formatter->format();
+    }
+
+    public function testTestNoColumns()
+    {
+        $this->expectException(PHPExcelFormatterException::class);
+
+        // Load file
+        $formatter = new PHPExcelFormatter(dirname(__DIR__).'/examples/example2.xls', false);
+
+        // Output columns array
+        $formatterColumns = array(
+            'Username' => 'username',
+            'Phone' => 'phone_no',
+            'Sex' => 'sex'
+        );
+
+        // Set our fields
+        $formatter->setFormatterColumns($formatterColumns);
+
+        $formatter->format();
+    }
+
+    public function testTestNoTableName()
+    {
+        $this->expectException(PHPExcelFormatterException::class);
+
+        // Load file
+        $formatter = new PHPExcelFormatter(dirname(__DIR__).'/examples/example1.xls');
+
+        // Output columns array
+        $formatterColumns = [
+            'username' => 'username',
+            'phone'    => 'phone_no',
+            'email'    => 'email_address'
+        ];
+
+        // Set our fields
+        $formatter->setFormatterColumns($formatterColumns);
+
+        $formatter->format();
+
+        // Output as mysql query
+        $formatter->output('mysql');
+    }
+
+    public function testTestNoFieldFound()
+    {
+        $this->expectException(PHPExcelFormatterException::class);
+
+        // Load file
+        $formatter = new PHPExcelFormatter(dirname(__DIR__).'/examples/example1.xls');
+
+        // Output columns array
+        $formatterColumns = [
+            'username1' => 'username',
+            'phone'    => 'phone_no',
+            'email'    => 'email_address'
+        ];
+
+        // Set our fields
+        $formatter->setFormatterColumns($formatterColumns);
+
+        $formatter->format();
+
+        // Output as mysql query
+        $formatter->output('mysql');
     }
 }
