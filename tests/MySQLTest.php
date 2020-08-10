@@ -1,4 +1,6 @@
 <?php
+namespace RKD\PHPExcelFormatter\Tests;
+
 use PHPUnit\Framework\TestCase;
 use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
 use RKD\PHPExcelFormatter\PHPExcelFormatter;
@@ -69,11 +71,11 @@ final class MySQLTest extends TestCase
         ];
 
         // Output columns array
-        $formatterColumns = array(
+        $formatterColumns = [
             'Username' => 'username',
             'Phone' => 'phone_no',
             'Sex' => 'sex'
-        );
+        ];
 
         // Set file columns, since first row is data, not field names
         $formatter->setColumns($columns);
@@ -123,11 +125,11 @@ final class MySQLTest extends TestCase
         $formatter = new PHPExcelFormatter(dirname(__DIR__).'/examples/example2.xls', false);
 
         // Output columns array
-        $formatterColumns = array(
+        $formatterColumns = [
             'Username' => 'username',
             'Phone' => 'phone_no',
             'Sex' => 'sex'
-        );
+        ];
 
         // Set our fields
         $formatter->setFormatterColumns($formatterColumns);

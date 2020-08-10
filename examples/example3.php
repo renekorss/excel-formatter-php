@@ -7,8 +7,8 @@
 
 require dirname(__DIR__).'/vendor/autoload.php';
 
-use RKD\PHPExcelFormatter\PHPExcelFormatter;
 use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
+use RKD\PHPExcelFormatter\PHPExcelFormatter;
 
 try {
     // Load file
@@ -20,11 +20,11 @@ try {
     ];
 
     // Output columns array
-    $formatterColumns = array(
+    $formatterColumns = [
         'Username' => 'username',
         'Phone' => 'phone_no',
         'Sex' => 'sex'
-    );
+    ];
 
     // Set file columns, since first row is data, not field names
     $formatter->setColumns($columns);

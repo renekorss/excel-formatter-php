@@ -2,28 +2,24 @@
 /**
  * PHPExcelFormatter
  *
- * Copyright (c) 2020 PHPExcelFormatter
+ * Copyright (c) 2020 Rene Korss
  *
- * @category   PHPExcelFormatter
- * @package    PHPExcelFormatter
- * @copyright  Copyright (c) 2020 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
+ * @copyright  Copyright (c) 2020 Rene Korss
  * @license    http://opensource.org/licenses/MIT
  * @author     Rene Korss <rene.korss@gmail.com>
  */
 
 namespace RKD\PHPExcelFormatter;
 
+use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
-use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
 
 /**
  * PHPExcelFormatter
  *
- * @category   PHPExcelFormatter
- * @package    PHPExcelFormatter
- * @copyright  Copyright (c) 2020 PHPExcelFormatter (https://github.com/renekorss/PHPExcelFormatter)
+ * @copyright  Copyright (c) 2020 Rene Korss
  */
 
 class PHPExcelFormatter
@@ -88,12 +84,16 @@ class PHPExcelFormatter
      *
      * @param   String  File path
      * @param   Boolean Do we read columns from first row
+     *
+     * @SuppressWarnings(PHPMD.BooleanArgumentFlag)
      */
     public function __construct($file, $readColumns = true)
     {
         // Check if we have PHPExcel
         if (!class_exists(Spreadsheet::class)) {
-            throw new PHPExcelFormatterException('Spreadsheet class not found. Please include it.'); // @codeCoverageIgnore
+            throw new PHPExcelFormatterException(
+                'Spreadsheet class not found. Please include it.'
+            ); // @codeCoverageIgnore
         }
 
         // Set file
@@ -121,6 +121,7 @@ class PHPExcelFormatter
             $this->startingRow = 2;
             $row = 1;
 
+            $columns = [];
             for ($col = 0; $col < $this->highestColumnIndex; ++$col) {
                 $value = $this->worksheetObj->getCellByColumnAndRow($col + 1, $row, true)->getValue();
                 $columns[$col] = $value;
@@ -138,7 +139,7 @@ class PHPExcelFormatter
      * @param   array   Columns
      */
 
-    public function setColumns($columns = array())
+    public function setColumns($columns = [])
     {
         $this->columns = (array)array_filter($columns);
 
@@ -165,7 +166,7 @@ class PHPExcelFormatter
      * @param   array   Columns
      */
 
-    public function setFormatterColumns($columns = array())
+    public function setFormatterColumns($columns = [])
     {
         $this->formatterColumns = (array)$columns;
     }
@@ -235,8 +236,9 @@ class PHPExcelFormatter
 
     /**
      * Function to format data
+     *
+     * @SuppressWarnings(PHPMD.ElseExpression)
      */
-
     public function format()
     {
         // Check if found column no
@@ -245,7 +247,8 @@ class PHPExcelFormatter
         }
 
         // Empty formatted data
-        $this->formattedData = array();
+        $this->formattedData = [];
+        $formattedData = [];
         // Read all rows
         for ($row = $this->startingRow; $row <= $this->highestRow; ++$row) {
             foreach ($this->formatterColumns as $colIdentifier => $colName) {
@@ -289,8 +292,8 @@ class PHPExcelFormatter
 
     protected function escape($value)
     {
-        $search  = array("\\",  "\x00", "\n",  "\r",  "'",  '"', "\x1a");
-        $replace = array("\\\\","\\0","\\n", "\\r", "\'", '\"', "\\Z");
+        $search  = ["\\",  "\x00", "\n",  "\r",  "'",  '"', "\x1a"];
+        $replace = ["\\\\","\\0","\\n", "\\r", "\'", '\"', "\\Z"];
 
         return str_replace($search, $replace, $value);
     }
@@ -321,7 +324,7 @@ class PHPExcelFormatter
         $sql = '';
 
         // Sql rows
-        $sqlRows = array();
+        $sqlRows = [];
 
         // Table name
         $tableName = $this->mysqlTable;
@@ -344,7 +347,7 @@ class PHPExcelFormatter
                 $sqlRow = '(';
                 $sqlRowValues = null;
 
-                foreach ($row as $columnName => $columnValue) {
+                foreach ($row as $columnValue) {
                     $sqlRowValues[] = "'".$this->escape($columnValue)."'";
                 }
 

@@ -1,4 +1,6 @@
 <?php
+namespace RKD\PHPExcelFormatter\Tests;
+
 use PHPUnit\Framework\TestCase;
 use RKD\PHPExcelFormatter\PHPExcelFormatter;
 
@@ -71,11 +73,11 @@ final class ArrayTest extends TestCase
         ];
 
         // Output columns array
-        $formatterColumns = array(
+        $formatterColumns = [
             'Username' => 'username',
             'Phone' => 'phone_no',
             'Sex' => 'sex'
-        );
+        ];
 
         // Set file columns, since first row is data, not field names
         $formatter->setColumns($columns);

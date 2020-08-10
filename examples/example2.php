@@ -7,8 +7,8 @@
 
 require dirname(__DIR__).'/vendor/autoload.php';
 
-use RKD\PHPExcelFormatter\PHPExcelFormatter;
 use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
+use RKD\PHPExcelFormatter\PHPExcelFormatter;
 
 try {
     // Load file
