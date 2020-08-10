@@ -91,9 +91,11 @@ class PHPExcelFormatter
     {
         // Check if we have PHPExcel
         if (!class_exists(Spreadsheet::class)) {
+            // @codeCoverageIgnoreStart
             throw new PHPExcelFormatterException(
                 'Spreadsheet class not found. Please include it.'
-            ); // @codeCoverageIgnore
+            );
+            // @codeCoverageIgnoreEnd
         }
 
         // Set file
