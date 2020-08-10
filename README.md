@@ -27,7 +27,7 @@ require __DIR__ . '/vendor/autoload.php';
 use RKD\PHPExcelFormatter\PHPExcelFormatter;
 use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
 
-try{
+try {
   // Load file
   $formatter = new PHPExcelFormatter('example1.xls');
 
@@ -70,7 +70,7 @@ try{
   // Print mysql query
   echo '<pre>'.print_r($output, true).'</pre>';
 
-}catch(PHPExcelFormatterException $e){
+} catch (PHPExcelFormatterException $e) {
   echo 'Error: '.$e->getMessage();
 }
 ```
