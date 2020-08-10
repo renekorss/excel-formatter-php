@@ -14,10 +14,12 @@
 
 namespace RKD\PHPExcelFormatter\Exception;
 
+use Exception;
+
 /**
  * PHPExcelFormatterException
  */
 
-class PHPExcelFormatterException extends \Exception{
+class PHPExcelFormatterException extends Exception{
 
 }

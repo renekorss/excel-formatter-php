@@ -1,12 +1,13 @@
+[![Actions Status](https://github.com/renekorss/excel-formatter-php/workflows/build/badge.svg)](https://github.com/renekorss/excel-formatter-php/actions)
+[![Coverage Status](https://coveralls.io/repos/renekorss/excel-formatter-php/badge.svg?branch=master&service=github)](https://coveralls.io/github/renekorss/excel-formatter-php?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/renekorss/phpexcelformatter/v/stable)](https://packagist.org/packages/renekorss/phpexcelformatter)
 [![Total Downloads](https://poser.pugx.org/renekorss/phpexcelformatter/downloads)](https://packagist.org/packages/renekorss/phpexcelformatter)
 [![License](http://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![SensioLabsInsight](https://insight.sensiolabs.com/projects/591227c5-55ca-47cf-a349-939024ce7628/mini.png)](https://insight.sensiolabs.com/projects/591227c5-55ca-47cf-a349-939024ce7628)
 
-PHPExcelFormatter
-=================
+# PHPExcelFormatter
 
-PHPExcelFormatter is class to make it more simple to get data from Excel documents.
+PHPExcelFormatter is class to make getting data from Excel documents simpler.
 
 * Read columns what you really need
 * Set column names for documents what dosen't have column names on first row
@@ -14,12 +15,11 @@ PHPExcelFormatter is class to make it more simple to get data from Excel documen
 * Retrieve data in array or MySQL query format
 * Greate for importing files and then letting user to connect document columns with your DB fields :) (example coming)
 
-Composer
-=================
+## Install
+
 	composer require renekorss/phpexcelformatter
 
-Usage
-=================
+## Usage
 
 ```php
 // Require needed files
@@ -40,7 +40,7 @@ try{
   );
 
   // Output columns array (document dosen't have column names on first row)
-  // Skip foruth column (age) (third in array), because we don't need that data
+  // Skip fourth column (age) (third in array), because we don't need that data
   // NOTE: if document dosen't have column names on first line, second parameter for PHPExcelFormatter should be $readColumns = false, otherwise it will skip first line of data
   $formatterColumns = array(
     'username',
@@ -78,14 +78,6 @@ try{
 
 View [examples](examples)
 
-Want to contribute / have ideas?
-=================
-Fork us or create issue!
+## License
 
-Uses (thanks)
-=================
-[PHPOffice/PHPExcel](https://github.com/PHPOffice/PHPExcel)
-
-License
-=================
 PHPExcelFormatter is licensed under [MIT](LICENSE)

@@ -2,23 +2,22 @@
 /**
  * PHPExcelFormatter example 3
  *
- * @author     Rene Korss <rene.korss@gmail.com>
+ * @author Rene Korss <rene.korss@gmail.com>
  */
 
-require __DIR__ . '/vendor/autoload.php';
+require dirname(__DIR__).'/vendor/autoload.php';
 
 use RKD\PHPExcelFormatter\PHPExcelFormatter;
 use RKD\PHPExcelFormatter\Exception\PHPExcelFormatterException;
 
-try
-{
+try {
     // Load file
     $formatter = new PHPExcelFormatter('example2.xls', false);
 
     // Input columns array. Set column names for printing. Skip fourth column (third in array)
-    $columns = array(
+    $columns = [
         'Username', 'E-mail', 'Phone', 4 => 'Sex'
-    );
+    ];
 
     // Output columns array
     $formatterColumns = array(
@@ -53,11 +52,6 @@ try
 
     // Print mysql query
     echo '<pre>'.print_r($output, true).'</pre>';
-
-}
-catch(PHPExcelFormatterException $e)
-{
+} catch (PHPExcelFormatterException $e) {
     echo 'Error: '.$e->getMessage();
 }
-
-?>

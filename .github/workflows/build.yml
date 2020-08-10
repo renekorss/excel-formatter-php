@@ -1,0 +1,31 @@
+name: build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+
+    runs-on: ${{ matrix.operating-system }}
+    strategy:
+      matrix:
+        operating-system: [ubuntu-latest]
+        php-versions: ['7.2', '7.3', '7.4']
+
+    name: PHP ${{ matrix.php-versions }} Test on ${{ matrix.operating-system }}
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+    - name: Install PHP
+      uses: shivammathur/setup-php@master
+      with:
+        php-version: ${{ matrix.php-versions }}
+        extension-csv: dom
+        coverage: xdebug
+    - name: Install dependencies
+      if: matrix.php-versions != '7.4'
+      run: composer install --prefer-dist --no-interaction
+    - name: Install dependencies
+      if: matrix.php-versions == '7.4'
+      run: composer install --prefer-dist --no-interaction --ignore-platform-reqs
+    - name: PHP Unit Tests
+      run: composer test
