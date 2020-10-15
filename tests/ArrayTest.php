@@ -31,9 +31,9 @@ final class ArrayTest extends TestCase
         $this->assertArrayHasKey('email_address', $firstRow);
 
         // Got correct data
-        $this->assertEquals('user', $firstRow['username']);
-        $this->assertEquals(55555555, $firstRow['phone_no']);
-        $this->assertEquals('user.name@gmail.com', $firstRow['email_address']);
+        $this->assertSame('user', $firstRow['username']);
+        $this->assertSame(55555555, $firstRow['phone_no']);
+        $this->assertSame('user.name@gmail.com', $firstRow['email_address']);
     }
 
     public function testSetColumnNamesByIndex()
@@ -57,9 +57,9 @@ final class ArrayTest extends TestCase
         $firstRow = $output[0];
 
         // Got correct data
-        $this->assertEquals('user', $firstRow['username']);
-        $this->assertEquals(554678876, $firstRow['phone_no']);
-        $this->assertEquals('male', $firstRow['sex']);
+        $this->assertSame('user', $firstRow['username']);
+        $this->assertSame(554678876.0, $firstRow['phone_no']);
+        $this->assertSame('male', $firstRow['sex']);
     }
 
     public function testSetColumnNamesByStringAndIndex()
@@ -91,8 +91,8 @@ final class ArrayTest extends TestCase
         $firstRow = $output[0];
 
         // Got correct data
-        $this->assertEquals('user', $firstRow['username']);
-        $this->assertEquals(554678876, $firstRow['phone_no']);
-        $this->assertEquals('male', $firstRow['sex']);
+        $this->assertSame('user', $firstRow['username']);
+        $this->assertSame(554678876.0, $firstRow['phone_no']);
+        $this->assertSame('male', $firstRow['sex']);
     }
 }
