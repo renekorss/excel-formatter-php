@@ -29,6 +29,11 @@
       "RKD\\PHPExcelFormatter\\": "src"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "RKD\\PHPExcelFormatter\\Tests\\": "tests"
+    }
+  },
   "config": {
     "optimize-autoloader": true
   },

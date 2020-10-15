@@ -26,7 +26,7 @@ final class MySQLTest extends TestCase
         // Output as mysql query
         $output = $formatter->output('mysql');
 
-        $this->assertEquals(
+        $this->assertSame(
             "INSERT INTO `users` (`username`, `phone_no`, `email_address`) ".
             "VALUES ('user', '55555555', 'user.name@gmail.com'), ('test', '56789258', 'test@test.ee')",
             $output
@@ -52,7 +52,7 @@ final class MySQLTest extends TestCase
         // Output as mysql query
         $output = $formatter->output();
 
-        $this->assertEquals(
+        $this->assertSame(
             "INSERT INTO `users` (`username`, `phone_no`, `sex`) ".
             "VALUES ('user', '554678876', 'male'), ('test', '428567867', 'female')",
             $output
@@ -86,7 +86,7 @@ final class MySQLTest extends TestCase
         // Output as mysql query
         $output = $formatter->output('m');
 
-        $this->assertEquals(
+        $this->assertSame(
             "INSERT INTO `users` (`username`, `phone_no`, `sex`) ".
             "VALUES ('user', '554678876', 'male'), ('test', '428567867', 'female')",
             $output
@@ -97,7 +97,7 @@ final class MySQLTest extends TestCase
             $formatter->getColumns()
         );
 
-        $this->assertEquals(
+        $this->assertSame(
             'users',
             $formatter->getMySQLTableName()
         );
