@@ -1,52 +1,47 @@
 {
-  "name": "renekorss/phpexcelformatter",
-  "type": "library",
-  "description": "PHPExcelFormatter is class to make it more simple to get data from Excel documents.",
-  "keywords": ["PHP", "Excel", "format", "xlsx", "xls", "spreadsheet"],
-  "homepage": "https://github.com/renekorss/PHPExcelFormatter",
-  "license": "MIT",
-  "authors": [
-    {
-      "name": "Rene Korss",
-      "email": "rene.korss@gmail.com",
-      "homepage": "http://rene.korss.ee",
-      "role": "Developer"
-    }
-  ],
-  "require": {
-    "php": "^7.2",
-    "phpoffice/phpspreadsheet": "^1.14"
-  },
-  "require-dev": {
-    "phpunit/phpunit": "^8.5",
-    "cedx/coveralls": "^11.2",
-    "phpmd/phpmd": "^2.8",
-    "squizlabs/php_codesniffer": "^3.5",
-    "friendsofphp/php-cs-fixer": "^2.16"
-  },
-  "autoload": {
-    "psr-4": {
-      "RKD\\PHPExcelFormatter\\": "src"
-    }
-  },
-  "autoload-dev": {
-    "psr-4": {
-      "RKD\\PHPExcelFormatter\\Tests\\": "tests"
-    }
-  },
-  "config": {
-    "optimize-autoloader": true
-  },
-  "scripts": {
-    "build": [
-      "@format",
-      "@test",
-      "@phpcs",
-      "@phpmd"
+    "name": "renekorss/phpexcelformatter",
+    "type": "library",
+    "description": "PHPExcelFormatter is class to make it more simple to get data from Excel documents.",
+    "keywords": ["PHP", "Excel", "format", "xlsx", "xls", "spreadsheet"],
+    "homepage": "https://github.com/renekorss/PHPExcelFormatter",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Rene Korss",
+            "email": "rene.korss@gmail.com",
+            "homepage": "https://koren.ee",
+            "role": "Developer"
+        }
     ],
-    "test": "./vendor/bin/phpunit",
-    "format": "./vendor/bin/php-cs-fixer fix",
-    "phpmd": "./vendor/bin/phpmd ./src text phpmd.xml",
-    "phpcs": "./vendor/bin/phpcs --report=full --extensions=php -p --standard=phpcs.xml ./src ./tests"
-  }
+    "require": {
+        "php": "^7.2",
+        "phpoffice/phpspreadsheet": "^1.14"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^9.4",
+        "cedx/coveralls": "^11.2",
+        "phpmd/phpmd": "^2.8",
+        "squizlabs/php_codesniffer": "^3.5",
+        "friendsofphp/php-cs-fixer": "^2.16"
+    },
+    "autoload": {
+        "psr-4": {
+            "RKD\\PHPExcelFormatter\\": "src"
+        }
+    },
+    "config": {
+        "optimize-autoloader": true
+    },
+    "scripts": {
+        "build": [
+            "@format",
+            "@test",
+            "@phpcs",
+            "@phpmd"
+        ],
+        "test": "./vendor/bin/phpunit",
+        "format": "./vendor/bin/php-cs-fixer fix",
+        "phpmd": "./vendor/bin/phpmd ./src text phpmd.xml",
+        "phpcs": "./vendor/bin/phpcs --report=full --extensions=php -p --standard=phpcs.xml ./src ./tests"
+    }
 }
